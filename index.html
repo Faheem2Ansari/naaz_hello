@@ -3,552 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naaz Unique Collection</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: #fffaf5;
-            color: #333;
-        }
-
-        /* Navbar */
-        header {
-            width: 100%;
-            background: #fff;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #b8860b;
-            letter-spacing: 2px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            margin-left: 30px;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #b8860b;
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 85vh;
-            background:
-                linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-                url("https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=80");
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 30px;
-        }
-
-        .hero-content h1 {
-            font-size: 60px;
-            margin-bottom: 20px;
-            font-family: Georgia, serif;
-        }
-
-        .hero-content p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #c79a24;
-            color: white;
-            padding: 14px 30px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #a77c13;
-        }
-
-        /* Common Section */
-        section {
-            padding: 70px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-title h2 {
-            font-size: 38px;
-            color: #8d6814;
-            font-family: Georgia, serif;
-        }
-
-        .section-title p {
-            margin-top: 10px;
-            color: #777;
-        }
-
-        /* Categories */
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-        }
-
-        .category {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .category:hover {
-            transform: translateY(-8px);
-        }
-
-        .category img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-        }
-
-        .category h3 {
-            padding: 20px;
-            color: #8d6814;
-        }
-
-        /* Products */
-        .products {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-        }
-
-        .product {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: 0.3s;
-        }
-
-        .product:hover {
-            transform: translateY(-8px);
-        }
-
-        .product img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-info h3 {
-            color: #555;
-            margin-bottom: 8px;
-        }
-
-        .price {
-            color: #b8860b;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .small-btn {
-            display: inline-block;
-            padding: 9px 18px;
-            border: 1px solid #b8860b;
-            color: #b8860b;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-
-        .small-btn:hover {
-            background: #b8860b;
-            color: white;
-        }
-
-        /* About */
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            background: #f7eee1;
-        }
-
-        .about img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .about-text h2 {
-            font-family: Georgia, serif;
-            color: #8d6814;
-            font-size: 38px;
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            line-height: 1.8;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .review {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        .stars {
-            color: #d4a72c;
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-
-        .review p {
-            line-height: 1.7;
-            color: #666;
-        }
-
-        .review h4 {
-            margin-top: 15px;
-            color: #8d6814;
-        }
-
-        /* Contact */
-        .contact {
-            background: #2f251b;
-            color: white;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-family: Georgia, serif;
-            font-size: 38px;
-            color: #e4bd58;
-            margin-bottom: 15px;
-        }
-
-        .contact p {
-            margin: 10px 0;
-            color: #ddd;
-        }
-
-        /* Footer */
-        footer {
-            background: #1d1712;
-            color: #aaa;
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .categories,
-            .products {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonials {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-content h1 {
-                font-size: 45px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav a {
-                margin: 0 7px;
-                font-size: 14px;
-            }
-
-            .categories,
-            .products {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                min-height: 70vh;
-            }
-
-            .hero-content h1 {
-                font-size: 38px;
-            }
-
-            section {
-                padding: 50px 5%;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- Navbar -->
-    <header>
-        <div class="logo">NAAZ UNIQUE COLLECTION</div>
-
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#categories">Categories</a>
-            <a href="#collection">Collection</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Timeless Elegance</h1>
-            <p>Discover jewellery that tells your beautiful story.</p>
-            <a href="#collection" class="btn">Explore Collection</a>
-        </div>
-    </section>
-
-
-    <!-- Categories -->
-    <section id="categories">
-        <div class="section-title">
-            <h2>Shop By Category</h2>
-            <p>Find the perfect jewellery for every occasion.</p>
-        </div>
-
-        <div class="categories">
-
-            <div class="category">
-                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80">
-                <h3>Necklaces</h3>
-            </div>
-
-            <div class="category">
-                <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=80">
-                <h3>Earrings</h3>
-            </div>
-
-            <div class="category">
-                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=80">
-                <h3>Rings</h3>
-            </div>
-
-            <div class="category">
-                <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=700&q=80">
-                <h3>Bracelets</h3>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Products -->
-    <section id="collection">
-        <div class="section-title">
-            <h2>Featured Collection</h2>
-            <p>Our most loved jewellery pieces.</p>
-        </div>
-
-        <div class="products">
-
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=700&q=80">
-
-                <div class="product-info">
-                    <h3>Golden Pearl Necklace</h3>
-                    <div class="price">₹4,999</div>
-                    <a href="#contact" class="small-btn">View Details</a>
-                </div>
-            </div>
-
-
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=80">
-
-                <div class="product-info">
-                    <h3>Elegant Diamond Earrings</h3>
-                    <div class="price">₹7,499</div>
-                    <a href="#contact" class="small-btn">View Details</a>
-                </div>
-            </div>
-
-
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1603561596112-db5c4a0e6d2a?auto=format&fit=crop&w=700&q=80">
-
-                <div class="product-info">
-                    <h3>Classic Gold Ring</h3>
-                    <div class="price">₹5,999</div>
-                    <a href="#contact" class="small-btn">View Details</a>
-                </div>
-            </div>
-
-
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=700&q=80">
-
-                <div class="product-info">
-                    <h3>Luxury Gold Bracelet</h3>
-                    <div class="price">₹8,999</div>
-                    <a href="#contact" class="small-btn">View Details</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- About -->
-    <section class="about" id="about">
-
-        <div>
-            <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=1000&q=80">
-        </div>
-
-        <div class="about-text">
-            <h2>Crafted With Love</h2>
-
-            <p>
-                At NAAZ, we believe jewellery is more than an accessory.
-                It is a celebration of love, memories and unforgettable moments.
-            </p>
-
-            <p>
-                Every piece is carefully designed with attention to detail,
-                combining timeless beauty with modern elegance.
-            </p>
-
-            <a href="#contact" class="btn">Know More</a>
-        </div>
-
-    </section>
-
-
-    <!-- Testimonials -->
-    <section>
-
-        <div class="section-title">
-            <h2>What Our Customers Say</h2>
-            <p>Beautiful words from our happy customers.</p>
-        </div>
-
-        <div class="testimonials">
-
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <p>
-                    "The necklace was absolutely beautiful. The quality
-                    exceeded my expectations."
-                </p>
-                <h4>— Priya Sharma</h4>
-            </div>
-
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <p>
-                    "I bought earrings for my anniversary and they looked
-                    stunning. Highly recommended!"
-                </p>
-                <h4>— Ananya Gupta</h4>
-            </div>
-
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <p>
-                    "Amazing designs, premium quality and beautiful packaging.
-                    Loved the experience."
-                </p>
-                <h4>— Riya Verma</h4>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Contact -->
-    <section class="contact" id="contact">
-        <h2>Get In Touch</h2>
-
-        <p>Looking for something special?</p>
-        <p>Email: hello@luxorajewellery.com</p>
-        <p>Phone: +91 98765 43210</p>
-
-        <br>
-
-        <a href="mailto:hello@luxorajewellery.com" class="btn">
-            Contact Us
-        </a>
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 NAAZ Jewellery. All Rights Reserved.</p>
-    </footer>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NAAZ Jewellery</title>
 
     <style>
@@ -568,7 +22,7 @@
             color: #333;
         }
 
-        /* Navbar */
+        /* NAVBAR */
         header {
             width: 100%;
             background: #fff;
@@ -601,7 +55,7 @@
             color: #b8860b;
         }
 
-        /* Hero */
+        /* HERO */
         .hero {
             min-height: 85vh;
             background:
@@ -643,7 +97,7 @@
             background: #a77c13;
         }
 
-        /* Common Section */
+        /* COMMON SECTION */
         section {
             padding: 70px 8%;
         }
@@ -664,7 +118,7 @@
             color: #777;
         }
 
-        /* Categories */
+        /* CATEGORIES */
         .categories {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -695,7 +149,7 @@
             color: #8d6814;
         }
 
-        /* Products */
+        /* PRODUCTS */
         .products {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -750,7 +204,7 @@
             color: white;
         }
 
-        /* About */
+        /* ABOUT */
         .about {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -777,7 +231,7 @@
             margin-bottom: 20px;
         }
 
-        /* Testimonials */
+        /* TESTIMONIALS */
         .testimonials {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -807,7 +261,7 @@
             color: #8d6814;
         }
 
-        /* Contact */
+        /* CONTACT */
         .contact {
             background: #2f251b;
             color: white;
@@ -826,7 +280,50 @@
             color: #ddd;
         }
 
-        /* Footer */
+        /* WHATSAPP CONTACT BUTTON */
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 14px 28px;
+            margin-top: 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        /* FLOATING WHATSAPP BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            width: 62px;
+            height: 62px;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 9999;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+        }
+
+        /* FOOTER */
         footer {
             background: #1d1712;
             color: #aaa;
@@ -834,8 +331,9 @@
             padding: 20px;
         }
 
-        /* Responsive */
+        /* RESPONSIVE */
         @media (max-width: 900px) {
+
             .categories,
             .products {
                 grid-template-columns: repeat(2, 1fr);
@@ -855,6 +353,7 @@
         }
 
         @media (max-width: 600px) {
+
             header {
                 flex-direction: column;
                 gap: 15px;
@@ -881,15 +380,23 @@
             section {
                 padding: 50px 5%;
             }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 28px;
+                right: 18px;
+                bottom: 18px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Navbar -->
+    <!-- NAVBAR -->
     <header>
-        <div class="logo">NAAZ</div>
+        <div class="logo">NAAZ UNIQUE COLLECTION</div>
 
         <nav>
             <a href="#home">Home</a>
@@ -901,18 +408,27 @@
     </header>
 
 
-    <!-- Hero Section -->
+    <!-- HERO -->
     <section class="hero" id="home">
         <div class="hero-content">
+
             <h1>Timeless Elegance</h1>
-            <p>Discover jewellery that tells your beautiful story.</p>
-            <a href="#collection" class="btn">Explore Collection</a>
+
+            <p>
+                Discover jewellery that tells your beautiful story.
+            </p>
+
+            <a href="#collection" class="btn">
+                Explore Collection
+            </a>
+
         </div>
     </section>
 
 
-    <!-- Categories -->
+    <!-- CATEGORIES -->
     <section id="categories">
+
         <div class="section-title">
             <h2>Shop By Category</h2>
             <p>Find the perfect jewellery for every occasion.</p>
@@ -941,11 +457,13 @@
             </div>
 
         </div>
+
     </section>
 
 
-    <!-- Products -->
+    <!-- PRODUCTS -->
     <section id="collection">
+
         <div class="section-title">
             <h2>Featured Collection</h2>
             <p>Our most loved jewellery pieces.</p>
@@ -954,53 +472,86 @@
         <div class="products">
 
             <div class="product">
+
                 <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=700&q=80">
 
                 <div class="product-info">
                     <h3>Golden Pearl Necklace</h3>
-                    <div class="price">₹4,999</div>
-                    <a href="#contact" class="small-btn">View Details</a>
+
+                    <div class="price">
+                        ₹4,999
+                    </div>
+
+                    <a href="#contact" class="small-btn">
+                        View Details
+                    </a>
                 </div>
+
             </div>
 
 
             <div class="product">
+
                 <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=80">
 
                 <div class="product-info">
                     <h3>Elegant Diamond Earrings</h3>
-                    <div class="price">₹7,499</div>
-                    <a href="#contact" class="small-btn">View Details</a>
+
+                    <div class="price">
+                        ₹7,499
+                    </div>
+
+                    <a href="#contact" class="small-btn">
+                        View Details
+                    </a>
                 </div>
+
             </div>
 
 
             <div class="product">
+
                 <img src="https://images.unsplash.com/photo-1603561596112-db5c4a0e6d2a?auto=format&fit=crop&w=700&q=80">
 
                 <div class="product-info">
                     <h3>Classic Gold Ring</h3>
-                    <div class="price">₹5,999</div>
-                    <a href="#contact" class="small-btn">View Details</a>
+
+                    <div class="price">
+                        ₹5,999
+                    </div>
+
+                    <a href="#contact" class="small-btn">
+                        View Details
+                    </a>
                 </div>
+
             </div>
 
 
             <div class="product">
+
                 <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=700&q=80">
 
                 <div class="product-info">
                     <h3>Luxury Gold Bracelet</h3>
-                    <div class="price">₹8,999</div>
-                    <a href="#contact" class="small-btn">View Details</a>
+
+                    <div class="price">
+                        ₹8,999
+                    </div>
+
+                    <a href="#contact" class="small-btn">
+                        View Details
+                    </a>
                 </div>
+
             </div>
 
         </div>
+
     </section>
 
 
-    <!-- About -->
+    <!-- ABOUT -->
     <section class="about" id="about">
 
         <div>
@@ -1008,6 +559,7 @@
         </div>
 
         <div class="about-text">
+
             <h2>Crafted With Love</h2>
 
             <p>
@@ -1020,47 +572,82 @@
                 combining timeless beauty with modern elegance.
             </p>
 
-            <a href="#contact" class="btn">Know More</a>
+            <a href="#contact" class="btn">
+                Know More
+            </a>
+
         </div>
 
     </section>
 
 
-    <!-- Testimonials -->
+    <!-- TESTIMONIALS -->
     <section>
 
         <div class="section-title">
+
             <h2>What Our Customers Say</h2>
-            <p>Beautiful words from our happy customers.</p>
+
+            <p>
+                Beautiful words from our happy customers.
+            </p>
+
         </div>
+
 
         <div class="testimonials">
 
             <div class="review">
-                <div class="stars">★★★★★</div>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
                 <p>
-                    "The necklace was absolutely beautiful. The quality
-                    exceeded my expectations."
+                    "The necklace was absolutely beautiful.
+                    The quality exceeded my expectations."
                 </p>
-                <h4>— Priya Sharma</h4>
+
+                <h4>
+                    — Priya Sharma
+                </h4>
+
             </div>
 
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <p>
-                    "I bought earrings for my anniversary and they looked
-                    stunning. Highly recommended!"
-                </p>
-                <h4>— Ananya Gupta</h4>
-            </div>
 
             <div class="review">
-                <div class="stars">★★★★★</div>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
                 <p>
-                    "Amazing designs, premium quality and beautiful packaging.
-                    Loved the experience."
+                    "I bought earrings for my anniversary and
+                    they looked stunning. Highly recommended!"
                 </p>
-                <h4>— Riya Verma</h4>
+
+                <h4>
+                    — Ananya Gupta
+                </h4>
+
+            </div>
+
+
+            <div class="review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Amazing designs, premium quality and
+                    beautiful packaging. Loved the experience."
+                </p>
+
+                <h4>
+                    — Riya Verma
+                </h4>
+
             </div>
 
         </div>
@@ -1068,26 +655,57 @@
     </section>
 
 
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section class="contact" id="contact">
+
         <h2>Get In Touch</h2>
 
-        <p>Looking for something special?</p>
-        <p>Email: hello@luxorajewellery.com</p>
-        <p>Phone: +91 98765 43210</p>
+        <p>
+            Looking for something special?
+        </p>
 
-        <br>
+        <p>
+            Email: hello@luxorajewellery.com
+        </p>
 
-        <a href="mailto:hello@luxorajewellery.com" class="btn">
-            Contact Us
+        <p>
+            Phone: +91 000000
+        </p>
+
+
+        <!-- WHATSAPP BUTTON -->
+        <a
+            href="https://wa.me/91000000?text=Hello%20LUXORA%20Jewellery,%20mujhe%20aapke%20products%20ke%20baare%20mein%20jaankari%20chahiye."
+            target="_blank"
+            class="whatsapp-btn">
+
+            💬 Chat on WhatsApp
+
         </a>
+
     </section>
 
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 NAAZ Jewellery. All Rights Reserved.</p>
+
+        <p>
+            © 2026 NAAZ Jewellery. All Rights Reserved.
+        </p>
+
     </footer>
+
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a
+        href="https://wa.me/0000000?text=Hello%20LUXORA%20Jewellery"
+        target="_blank"
+        class="whatsapp-float"
+        aria-label="Chat on WhatsApp">
+
+        💬
+
+    </a>
 
 </body>
 </html>
